@@ -1,10 +1,10 @@
 import React from "react";
 import { Avatar } from "./Avatar";
 
-export const MovingArea = () => {
+export const MovingArea = ({ playerPosition }) => {
   return (
     <div id="moving-area">
-      <Avatar></Avatar>
+      <Avatar playerPosition={playerPosition}></Avatar>
     </div>
   );
 };
