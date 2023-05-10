@@ -1,5 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { QuizMode } from "./QuizMode";
 
-export const MainActivityArea = () => {
-  return <div id="main-activity-area">MainActivityArea</div>;
+export const MainActivityArea = ({ quiz }) => {
+  const [mode, setMode] = useState("");
+  useEffect(() => {
+    if (quiz.id !== undefined) {
+      setMode("quiz");
+    }
+  }, [quiz]);
+  return (
+    <div id="main-activity-area">
+      MainActivityArea
+      {mode == "quiz" && <QuizMode quiz={quiz}></QuizMode>}
+    </div>
+  );
 };
