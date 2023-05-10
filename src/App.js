@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useCallback, useEffect, useState } from "react";
+import { MainActivityArea } from "./components/mainActivityArea/MainActivityArea";
+import { MovingArea } from "./components/movingArea/MovingArea";
+import { ParallaxObject } from "./components/ParallaxObject";
+import "./styles/style.scss";
+import { FullScreenBtn } from "./components/FullScreenBtn";
+import { Controller } from "./components/Controller";
 function App() {
+  const [game, setGame] = useState({});
+  const [playerPosition, setPlayerPosition] = useState({ x: 0, y: 0 });
+
+  const handleOnMove = useCallback(({ x, y }) => {
+    setPlayerPosition((currentPosition) => {
+      return {
+        x: currentPosition.x + x,
+        y: currentPosition.y + y,
+      };
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App h-100">
+      <Controller onMove={handleOnMove}></Controller>
+      <FullScreenBtn></FullScreenBtn>
+      <MainActivityArea></MainActivityArea>
+      <MovingArea></MovingArea>
+      <ParallaxObject></ParallaxObject>
     </div>
   );
 }

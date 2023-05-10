@@ -1,0 +1,27 @@
+.App {
+  background-color: white;
+}
+
+#main-activity-area {
+  background-color: rgb(218, 237, 255);
+  height: 250px;
+  width: 400px;
+}
+
+#moving-area {
+  height: 250px;
+  width: 100%;
+  background-color: rgb(255, 242, 218);
+  position: relative;
+}
+
+#avatar {
+  height: 100px;
+  width: 40px;
+  background-color: rgb(255, 250, 237);
+  border-radius: 20px;
+  border: 1px solid rgb(163, 163, 163);
+  position: absolute;
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
