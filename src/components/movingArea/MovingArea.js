@@ -12,6 +12,7 @@ export const MovingArea = ({ playerPosition, setQuiz }) => {
   const [barriers, setBarriers] = useState([barrierObj, barrierObj]);
 
   const selectBarrier = (b, index) => {
+    console.log("");
     setQuiz({ ...b, index: index });
   };
 

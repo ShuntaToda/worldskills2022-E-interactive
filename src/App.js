@@ -9,8 +9,12 @@ function App() {
   const [playerPosition, setPlayerPosition] = useState({ x: 0, y: 0 });
   const [quiz, setQuiz] = useState({});
 
-  const clearQuiz = () => {};
-  const MissQuiz = () => {};
+  const clearQuiz = () => {
+    setQuiz({});
+  };
+  const missQuiz = () => {
+    setQuiz({});
+  };
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key == "ArrowRight") {
@@ -45,7 +49,7 @@ function App() {
   return (
     <div className="App h-100">
       <FullScreenBtn></FullScreenBtn>
-      <MainActivityArea quiz={quiz}></MainActivityArea>
+      <MainActivityArea quiz={quiz} clearQuiz={clearQuiz} missQuiz={missQuiz}></MainActivityArea>
       <MovingArea setQuiz={setQuiz} playerPosition={playerPosition}></MovingArea>
       <ParallaxObject></ParallaxObject>
     </div>
