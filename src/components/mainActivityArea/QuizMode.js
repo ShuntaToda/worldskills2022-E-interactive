@@ -1,16 +1,20 @@
 import React from "react";
 
 export const QuizMode = ({ quiz, clearQuiz, missQuiz }) => {
-  console.log(quiz);
   return (
     <div>
       <div>QuizMode</div>
       <div>{quiz.text}</div>
-      <div onClick={clearQuiz} className="btn btn-primary">
-        clear
-      </div>
-      <div onClick={missQuiz} className="btn btn-danger">
-        miss
+      <div className="d-flex">
+        {quiz.item.map((i, index) => (
+          <div
+            key={index}
+            onClick={index == quiz.answer ? clearQuiz : missQuiz}
+            className="btn btn-primary"
+          >
+            {i}
+          </div>
+        ))}
       </div>
     </div>
   );

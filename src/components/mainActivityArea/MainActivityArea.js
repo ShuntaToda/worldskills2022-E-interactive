@@ -6,12 +6,14 @@ export const MainActivityArea = ({ quiz, clearQuiz, missQuiz }) => {
   useEffect(() => {
     if (quiz.id !== undefined) {
       setMode("quiz");
+    } else {
+      setMode("");
     }
   }, [quiz]);
   return (
     <div id="main-activity-area">
       MainActivityArea
-      {mode == "quiz" && (
+      {mode == "quiz" && quiz.id !== undefined && (
         <QuizMode quiz={quiz} clearQuiz={clearQuiz} missQuiz={missQuiz}></QuizMode>
       )}
     </div>

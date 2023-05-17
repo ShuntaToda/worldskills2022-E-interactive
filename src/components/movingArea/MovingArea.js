@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import { Avatar } from "./Avatar";
 import { QuizBarrier } from "./QuizBarrier";
 
-export const MovingArea = ({ playerPosition, setQuiz }) => {
-  const barrierObj = {
-    id: Math.floor(Math.random() * 1000000),
-    text: "一番大きいのを選べ",
-    item: ["10", "20", "30", "40"],
-    answer: 3,
-  };
-  const [barriers, setBarriers] = useState([barrierObj, barrierObj]);
-
+export const MovingArea = ({
+  playerPosition,
+  setQuiz,
+  barriers,
+  setPlayerMoveLimit,
+  movingDistance,
+}) => {
   const selectBarrier = (b, index) => {
     console.log("");
     setQuiz({ ...b, index: index });
@@ -18,7 +16,11 @@ export const MovingArea = ({ playerPosition, setQuiz }) => {
 
   return (
     <div id="moving-area">
-      <Avatar playerPosition={playerPosition}></Avatar>
+      <Avatar
+        playerPosition={playerPosition}
+        movingDistance={movingDistance}
+        setPlayerMoveLimit={setPlayerMoveLimit}
+      ></Avatar>
       <div className="c-quiz-barrier">
         {barriers.map((barrier, index) => (
           <QuizBarrier
