@@ -28,6 +28,7 @@ export const MovingArea = ({
             key={index}
             barrier={barrier}
             playerPosition={playerPosition}
+            setPlayerMoveLimit={setPlayerMoveLimit}
             selectBarrier={selectBarrier}
           ></QuizBarrier>
         ))}

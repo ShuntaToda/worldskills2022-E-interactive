@@ -31,13 +31,6 @@ function App() {
   };
   const missQuiz = () => {
     setQuiz({});
-
-    setPlayerMoveLimit({
-      top: true,
-      bottom: false,
-      right: false,
-      left: false,
-    });
   };
 
   const handleKeyDown = (e) => {
