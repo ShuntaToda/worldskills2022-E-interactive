@@ -31,46 +31,46 @@ function App() {
   };
   const missQuiz = () => {
     setQuiz({});
+
+    setPlayerMoveLimit({
+      top: true,
+      bottom: false,
+      right: false,
+      left: false,
+    });
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key == "ArrowRight" && !playerMoveLimit.right) {
+      setPlayerPosition((currentPosition) => ({
+        x: currentPosition.x + movingDistance,
+        y: currentPosition.y,
+      }));
+    } else if (e.key == "ArrowLeft" && !playerMoveLimit.left) {
+      setPlayerPosition((currentPosition) => ({
+        x: currentPosition.x - movingDistance,
+        y: currentPosition.y,
+      }));
+    } else if (e.key == "ArrowUp" && !playerMoveLimit.top) {
+      setPlayerPosition((currentPosition) => ({
+        x: currentPosition.x,
+        y: currentPosition.y - movingDistance,
+      }));
+    } else if (e.key == "ArrowDown" && !playerMoveLimit.bottom) {
+      setPlayerPosition((currentPosition) => ({
+        x: currentPosition.x,
+        y: currentPosition.y + movingDistance,
+      }));
+    }
   };
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key == "ArrowRight" && !playerMoveLimit.right) {
-        setPlayerPosition((currentPosition) => ({
-          x: currentPosition.x + movingDistance,
-          y: currentPosition.y,
-        }));
-      } else if (e.key == "ArrowLeft" && !playerMoveLimit.left) {
-        setPlayerPosition((currentPosition) => ({
-          x: currentPosition.x - movingDistance,
-          y: currentPosition.y,
-        }));
-      } else if (e.key == "ArrowUp" && !playerMoveLimit.top) {
-        setPlayerPosition((currentPosition) => ({
-          x: currentPosition.x,
-          y: currentPosition.y - movingDistance,
-        }));
-      } else if (e.key == "ArrowDown" && !playerMoveLimit.bottom) {
-        setPlayerPosition((currentPosition) => ({
-          x: currentPosition.x,
-          y: currentPosition.y + movingDistance,
-        }));
-      }
-      setPlayerMoveLimit({
-        top: true,
-        bottom: false,
-        right: false,
-        left: false,
-      });
-
-      console.log(playerMoveLimit);
-    };
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [playerPosition]);
 
   return (
     <div className="App h-100">
