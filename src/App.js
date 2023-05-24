@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 import { MainActivityArea } from "./components/mainActivityArea/MainActivityArea";
 import { MovingArea } from "./components/movingArea/MovingArea";
 import { ParallaxObject } from "./components/ParallaxObject";
@@ -13,6 +13,7 @@ const barrierObj = {
 };
 
 const movingDistance = 20;
+const stageColor = ["#ffd4b3", "#ffe7b3", "#ffe7b3", "#b4ffb3", "#b3ffe2", "#b3f7ff"];
 
 function App() {
   const [playerPosition, setPlayerPosition] = useState({ x: 0, y: 0 });
@@ -22,8 +23,10 @@ function App() {
     right: false,
     left: false,
   });
+
   const [quiz, setQuiz] = useState({});
   const [barriers, setBarriers] = useState([barrierObj, barrierObj]);
+  const [stage, setStage] = useState(0);
 
   const clearQuiz = () => {
     setQuiz({});
@@ -75,6 +78,8 @@ function App() {
         playerPosition={playerPosition}
         setPlayerMoveLimit={setPlayerMoveLimit}
         movingDistance={movingDistance}
+        stage={stage}
+        stageColor={stageColor}
       ></MovingArea>
       <ParallaxObject></ParallaxObject>
     </div>

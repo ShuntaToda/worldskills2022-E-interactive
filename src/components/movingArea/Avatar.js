@@ -4,10 +4,8 @@ export const Avatar = ({ playerPosition, setPlayerMoveLimit, movingDistance }) =
   const player = useRef(null);
   useEffect(() => {
     const parentElement = player.current.parentElement;
-    const rightDistance =
-      parentElement.offsetWidth - (player.current.offsetLeft + player.current.offsetWidth);
-    const bottomDistance =
-      parentElement.offsetHeight - (player.current.offsetTop + player.current.offsetHeight);
+    const rightDistance = parentElement.offsetWidth - (player.current.offsetLeft + player.current.offsetWidth);
+    const bottomDistance = parentElement.offsetHeight - (player.current.offsetTop + player.current.offsetHeight);
 
     if (player.current.offsetTop < 2 * movingDistance) {
       setPlayerMoveLimit((prevLimit) => ({ ...prevLimit, top: true }));

@@ -2,25 +2,20 @@ import React, { useState } from "react";
 import { Avatar } from "./Avatar";
 import { QuizBarrier } from "./QuizBarrier";
 
-export const MovingArea = ({
-  playerPosition,
-  setQuiz,
-  barriers,
-  setPlayerMoveLimit,
-  movingDistance,
-}) => {
+export const MovingArea = ({ playerPosition, setQuiz, barriers, setPlayerMoveLimit, movingDistance, stage, stageColor }) => {
   const selectBarrier = (b, index) => {
     console.log("");
     setQuiz({ ...b, index: index });
   };
 
   return (
-    <div id="moving-area">
-      <Avatar
-        playerPosition={playerPosition}
-        movingDistance={movingDistance}
-        setPlayerMoveLimit={setPlayerMoveLimit}
-      ></Avatar>
+    <div
+      id="moving-area"
+      style={{
+        backgroundColor: stageColor[stage],
+      }}
+    >
+      <Avatar playerPosition={playerPosition} movingDistance={movingDistance} setPlayerMoveLimit={setPlayerMoveLimit}></Avatar>
       <div className="c-quiz-barrier">
         {barriers.map((barrier, index) => (
           <QuizBarrier

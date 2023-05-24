@@ -1,12 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-export const QuizBarrier = ({
-  playerPosition,
-  barrier,
-  index,
-  selectBarrier,
-  setPlayerMoveLimit,
-}) => {
+export const QuizBarrier = ({ playerPosition, barrier, index, selectBarrier, setPlayerMoveLimit }) => {
   const barrierRef = useRef(null);
 
   useEffect(() => {
