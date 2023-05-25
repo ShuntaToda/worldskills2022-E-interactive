@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import { Avatar } from "./Avatar";
 import { QuizBarrier } from "./QuizBarrier";
 
-export const MovingArea = ({ playerPosition, setQuiz, barriers, setPlayerMoveLimit, movingDistance, stage, stageColor }) => {
+export const MovingArea = ({
+  playerPosition,
+  setQuiz,
+  barriers,
+  setPlayerMoveLimit,
+  movingDistance,
+  stage,
+  stageColor,
+  setStage,
+}) => {
   const selectBarrier = (b, index) => {
-    console.log("");
     setQuiz({ ...b, index: index });
   };
 

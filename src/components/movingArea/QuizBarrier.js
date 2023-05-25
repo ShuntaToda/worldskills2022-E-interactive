@@ -11,6 +11,18 @@ export const QuizBarrier = ({ playerPosition, barrier, index, selectBarrier, set
     }
   }, [playerPosition]);
 
+  const handleClick = () => {
+    selectBarrier(barrier, index);
+    setPlayerMoveLimit((prevLimit) => ({ ...prevLimit, right: true }));
+  };
+
+  useEffect(() => {
+    barrierRef.current.addEventListener("click", handleClick);
+
+    // return () => {
+    //   barrierRef.current.removeEventListener("click", handleClick);
+    // };
+  }, []);
   return (
     <div ref={barrierRef} className="c-quiz-barrier__barrier">
       barrier
