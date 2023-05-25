@@ -38,9 +38,7 @@ function App() {
 
   useEffect(() => {
     if (barriers.length == 0) {
-      setStage((prevStage) => {
-        prevStage++;
-      });
+      setStage(stage + 1);
       setBarriers([barrierObj, barrierObj]);
     }
   }, [barriers]);
