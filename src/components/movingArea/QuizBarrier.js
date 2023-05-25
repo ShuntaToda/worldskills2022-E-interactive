@@ -18,10 +18,6 @@ export const QuizBarrier = ({ playerPosition, barrier, index, selectBarrier, set
 
   useEffect(() => {
     barrierRef.current.addEventListener("click", handleClick);
-
-    // return () => {
-    //   barrierRef.current.removeEventListener("click", handleClick);
-    // };
   }, []);
   return (
     <div ref={barrierRef} className="c-quiz-barrier__barrier">

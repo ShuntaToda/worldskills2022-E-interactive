@@ -36,6 +36,15 @@ function App() {
     setQuiz({});
   };
 
+  useEffect(() => {
+    if (barriers.length == 0) {
+      setStage((prevStage) => {
+        prevStage++;
+      });
+      setBarriers([barrierObj, barrierObj]);
+    }
+  }, [barriers]);
+
   const handleKeyDown = (e) => {
     if (e.key == "ArrowRight" && !playerMoveLimit.right) {
       setPlayerPosition((currentPosition) => ({

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Avatar } from "./Avatar";
 import { QuizBarrier } from "./QuizBarrier";
 
