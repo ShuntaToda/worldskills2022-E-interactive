@@ -49,6 +49,7 @@
 .c-quiz {
   &__content {
     transition: 1s;
+    animation: fade 1s;
   }
   &__answer-text {
     position: absolute;
@@ -67,6 +68,15 @@
   }
   100% {
     font-size: 4rem;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

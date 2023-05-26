@@ -15,7 +15,7 @@ export const QuizMode = ({ quiz, clearQuiz, missQuiz }) => {
     setQuizAnswerText("不正解!!");
     answerTextColor = "#4b93e6";
     setTimeout(() => {
-      missQuiz();
+      setQuizAnswerText("");
     }, 3000);
   };
   return (
