@@ -11,11 +11,9 @@ export const MainActivityArea = ({ quiz, clearQuiz, missQuiz }) => {
     }
   }, [quiz]);
   return (
-    <div id="main-activity-area">
+    <div id="main-activity-area" className="rounded">
       MainActivityArea
-      {mode == "quiz" && quiz.id !== undefined && (
-        <QuizMode quiz={quiz} clearQuiz={clearQuiz} missQuiz={missQuiz}></QuizMode>
-      )}
+      {mode == "quiz" && quiz.id !== undefined && <QuizMode quiz={quiz} clearQuiz={clearQuiz} missQuiz={missQuiz}></QuizMode>}
     </div>
   );
 };

@@ -19,6 +19,7 @@ export const MovingArea = ({
   return (
     <div
       id="moving-area"
+      className="mt-4"
       style={{
         backgroundColor: stageColor[stage],
       }}

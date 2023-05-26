@@ -13,7 +13,7 @@ const barrierObj = {
 };
 
 const movingDistance = 20;
-const stageColor = ["#ffd4b3", "#ffe7b3", "#ffe7b3", "#b4ffb3", "#b3ffe2", "#b3f7ff"];
+const stageColor = ["#ffd4b3", "#ffe7b3", "#b4ffb3", "#b3ffe2", "#b3f7ff"];
 
 function App() {
   const [playerPosition, setPlayerPosition] = useState({ x: 0, y: 0 });
@@ -31,6 +31,12 @@ function App() {
   const clearQuiz = () => {
     setQuiz({});
     setBarriers((prevBarriers) => prevBarriers.splice(0, 1));
+    setPlayerMoveLimit({
+      top: false,
+      bottom: false,
+      right: false,
+      left: false,
+    });
   };
   const missQuiz = () => {
     setQuiz({});
@@ -40,6 +46,7 @@ function App() {
     if (barriers.length == 0) {
       setStage(stage + 1);
       setBarriers([barrierObj, barrierObj]);
+      setPlayerPosition({ x: 0, y: 0 });
     }
   }, [barriers]);
 
@@ -76,7 +83,7 @@ function App() {
   }, [playerPosition]);
 
   return (
-    <div className="App h-100">
+    <div className="App h-100 mt-5">
       <FullScreenBtn></FullScreenBtn>
       <MainActivityArea quiz={quiz} clearQuiz={clearQuiz} missQuiz={missQuiz}></MainActivityArea>
       <MovingArea

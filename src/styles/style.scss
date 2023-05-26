@@ -4,8 +4,9 @@
 
 #main-activity-area {
   background-color: rgb(218, 237, 255);
-  height: 250px;
-  width: 400px;
+  height: 300px;
+  width: 500px;
+  margin: auto;
 }
 
 #moving-area {
@@ -22,6 +23,7 @@
   border-radius: 20px;
   border: 1px solid rgb(163, 163, 163);
   position: absolute;
+  transition: 0.2s;
 }
 
 .c-quiz-barrier {
@@ -36,6 +38,35 @@
     background-color: lightblue;
     border-radius: 10px;
     margin-right: 20px;
+  }
+}
+
+.c-fullscreen {
+  position: absolute;
+  right: 0;
+}
+
+.c-quiz {
+  &__content {
+    transition: 1s;
+  }
+  &__answer-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    font-weight: bold;
+    animation: answer 2s;
+    font-size: 4rem;
+  }
+}
+
+@keyframes answer {
+  0% {
+    font-size: 0;
+  }
+  100% {
+    font-size: 4rem;
   }
 }
 
